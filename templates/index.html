@@ -34,8 +34,16 @@
 									<li class="active"><a href="{% url 'index' %}">Home</a></li>
 							
 									<li><a href="#">Services</a></li>
+									{% if user.is_authenticated %}
+                                     <li>hello {{user.first_name}}</li>
+									 <li><a href="accounts/logout">Login</a></li>
+									 {% else %}
+
+									<li><a href="accounts/register">Register</a></li>
+									<li><a href="accounts/login">Login</a></li>
 									
-									
+                                    {% endif %}
+
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -252,9 +260,10 @@
 
 						<!-- Destination -->
 						{% for desc in descs %}
+						<br>
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{{baseUrl}}/{{desc.image}}" alt="">
+								<img src="{{desc.image}}" alt="">
 								
 								{% if desc.offer %}
 								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
@@ -262,7 +271,7 @@
 							
 							</div>
 							<div class="destination_content">
-								<div class="destination_title"><a href="#">{{desc.name}}</a></div>
+								<div class="destination_title"><a href="#">{{desc.destination_name}}</a></div>
 								<div class="destination_subtitle"><p>{{desc.description}}, nec.</p></div>
 								<div class="destination_price">From ${{desc.price}}</div>
 							</div>
