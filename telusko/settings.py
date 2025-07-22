@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'calc',
     'travello',
     
+    'rest_framework',
+    
 ]
 
 MIDDLEWARE = [

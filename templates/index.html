@@ -36,12 +36,12 @@
 									<li><a href="#">Services</a></li>
 									{% if user.is_authenticated %}
                                      <li>hello {{user.first_name}}</li>
-									 <li><a href="accounts/logout">Login</a></li>
+									 <li><a href="accounts/logout">Logout</a></li>
 									 {% else %}
 
 									<li><a href="accounts/register">Register</a></li>
 									<li><a href="accounts/login">Login</a></li>
-									
+
                                     {% endif %}
 
 								</ul>
@@ -263,7 +263,7 @@
 						<br>
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{{desc.image}}" alt="">
+								<img src="{{desc.image.url}}" alt="">
 								
 								{% if desc.offer %}
 								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
